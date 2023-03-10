@@ -61,4 +61,22 @@ class BackStagePasTest extends \PHPUnit\Framework\TestCase
         $inn->updateQuality();
         $this->assertEquals(50, $item->quality);
     }
+
+    public function testQualityCannotBeHigherThenFiftyWhenSellInIsFive()
+    {
+        $item = new Item('Backstage passes to a TAFKAL80ETC concert', 5, 50);
+
+        $inn = new GildedRose([$item]);
+        $inn->updateQuality();
+        $this->assertEquals(50, $item->quality);
+    }
+
+    public function testQualityCannotBeHigherThenFiftyWhenSellInIsLessThenFive()
+    {
+        $item = new Item('Backstage passes to a TAFKAL80ETC concert', 3, 50);
+
+        $inn = new GildedRose([$item]);
+        $inn->updateQuality();
+        $this->assertEquals(50, $item->quality);
+    }
 }

@@ -8,21 +8,20 @@ use GildedRose\Item;
 
 class ConjuredAttributesResolver implements AttributesResolver
 {
-    public function resolveNewAttributes(Item $item): Item
+    public function resolveNewAttributes(Item $item): void
     {
         $item->sellIn--;
 
         if ($item->quality <= 0) {
             $item->quality = 0;
-            return $item;
+            return;
         }
 
         if ($item->sellIn < 0) {
             $item->quality -= 4;
-            return $item;
+            return;
         }
 
         $item->quality = $item->quality - 2;
-        return $item;
     }
 }

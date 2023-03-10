@@ -8,5 +8,5 @@ use GildedRose\Item;
 
 interface AttributesResolver
 {
-    public function resolveNewAttributes(Item $item): Item;
+    public function resolveNewAttributes(Item $item): void;
 }

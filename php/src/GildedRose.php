@@ -19,7 +19,7 @@ final class GildedRose
         foreach ($this->items as $item) {
             $qualityResolver = (new ResolverFactory())->createQualityResolverForItem($item);
 
-            $item = $qualityResolver->resolveNewAttributes($item);
+            $qualityResolver->resolveNewAttributes($item);
         }
     }
 }

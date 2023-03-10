@@ -9,21 +9,20 @@ use GildedRose\Item;
 class AgedBrieAttributesResolver implements AttributesResolver
 {
 
-    public function resolveNewAttributes(Item $item): Item
+    public function resolveNewAttributes(Item $item): void
     {
         $item->sellIn--;
 
         if ($item->quality >= 50) {
             $item->quality = 50;
-            return $item;
+            return;
         }
 
         if ($item->sellIn < 0) {
             $item->quality += 2;
-            return $item;
+            return;
         }
 
         $item->quality++;
-        return $item;
     }
 }

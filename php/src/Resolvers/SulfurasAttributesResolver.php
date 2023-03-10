@@ -8,8 +8,7 @@ use GildedRose\Item;
 
 class SulfurasAttributesResolver implements AttributesResolver
 {
-    public function resolveNewAttributes(Item $item): Item
+    public function resolveNewAttributes(Item $item): void
     {
-        return $item;
     }
 }
